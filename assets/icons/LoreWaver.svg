@@ -1,0 +1,6 @@
+<svg class="h-12 w-12 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 6.25278C12 6.25278 6.75 3.25 3.75 3.25C3.75 3.25 1.5 6.25 1.5 12C1.5 17.75 6.75 20.75 12 20.75C17.25 20.75 22.5 17.75 22.5 12C22.5 6.25 20.25 3.25 20.25 3.25C17.25 3.25 12 6.25278 12 6.25278Z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12 20.75V6.25278" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M3.75 3.25C3.75 3.25 8.25 6.25 12 6.25" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M20.25 3.25C20.25 3.25 15.75 6.25 12 6.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
