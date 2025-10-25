@@ -1,13 +1,13 @@
 🌌 LoreWaver
 AI-powered mobile app for immersive fantasy world creation. Built with Flutter, designed for storytellers, game masters, and visual creators.
 ## Design Preview
-<img src="assets/Design/stitch_map_editor/onboarding_welcome/screen.png" alt="AI Stitch Design" width="600"/>
-<img src="assets/Design/stitch_map_editor/ai_generated_world_first_look/screen.png" alt="AI Stitch Design" width="600"/>
-<img src="assets/Design/stitch_map_editor/ai_world_generation_progress_1/screen.png" alt="AI Stitch Design" width="600"/>
-<img src="assets/Design/stitch_map_editor/ai_world_generation_progress_2/screen.png" alt="AI Stitch Design" width="600"/>
-<img src="assets/Design/stitch_map_editor/explore_world_details/screen.png" alt="AI Stitch Design" width="600"/>
-<img src="assets/Design/stitch_map_editor/select_user_type/screen.png" alt="AI Stitch Design" width="600"/>
-<img src="assets/Design/stitch_map_editor/start_your_world/screen.png" alt="AI Stitch Design" width="600"/>
+<img src="assets/Design/stitch_map_editor/onboarding_welcome/screen.png" alt="AI Stitch Design" width="250"/>
+<img src="assets/Design/stitch_map_editor/ai_generated_world_first_look/screen.png" alt="AI Stitch Design" width="250"/>
+<img src="assets/Design/stitch_map_editor/ai_world_generation_progress_1/screen.png" alt="AI Stitch Design" width="250"/>
+<img src="assets/Design/stitch_map_editor/ai_world_generation_progress_2/screen.png" alt="AI Stitch Design" width="250"/>
+<img src="assets/Design/stitch_map_editor/explore_world_details/screen.png" alt="AI Stitch Design" width="250"/>
+<img src="assets/Design/stitch_map_editor/select_user_type/screen.png" alt="AI Stitch Design" width="250"/>
+<img src="assets/Design/stitch_map_editor/start_your_world/screen.png" alt="AI Stitch Design" width="250"/>
 
 
 
