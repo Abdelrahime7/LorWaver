@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4B0082",
+              accent: "#FFD700",
+              "content-light": "#39214a",
+              "content-dark": "#b38ecc",
+              "background-light": "#f5f3f7",
+              "background-dark": "#100a14",
+            },
+            fontFamily: {
+              display: ["Roboto", "sans-serif"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-content-light dark:text-content-dark">
+<div class="flex h-screen flex-col">
+<header class="flex-shrink-0">
+<div class="flex items-center justify-between p-4">
+<button class="text-content-light dark:text-content-dark">
+<span class="material-symbols-outlined"> arrow_back_ios_new </span>
+</button>
+<h1 class="text-lg font-bold text-content-light dark:text-content-dark">World Created</h1>
+<button class="text-content-light dark:text-content-dark">
+<span class="material-symbols-outlined"> share </span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-4 pb-4">
+<div class="flex flex-col items-center space-y-6 text-center">
+<div class="relative h-64 w-full overflow-hidden rounded-lg bg-cover bg-center shadow-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCO3HGGEqI5DPsXpdRfk3-GXq0r9uUN9a7zv7fTKSWdTWOLqIay7Bf7rOwMf5dmiSH3e96SZDiHm2ovOuzTv1rflBYshPisFNWl499wC9fvMsmtO3k1nuC2GHvHMxp4L0KXcWr3QiywmH2g2JtlyVUX7q5Xf3ngC4ELIp269ZX8fdoLi9cmetuxC2YSHqQ449OEeqbCxHvTCeIuS-oG4HlC5ooGoaTg_GWTqzigGbPeKexn339NeCOCBGaKPJmG15aita0Cn41pCw");'>
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<div>
+<h2 class="text-4xl font-bold text-accent">Eldoria</h2>
+<p class="mt-2 text-lg text-content-light dark:text-content-dark">
+              A land of ancient magic and hidden dangers, where heroes rise and legends are forged.
+            </p>
+</div>
+<div class="w-full space-y-3 pt-4 text-left">
+<h3 class="text-xl font-bold text-content-light dark:text-content-dark">Key Elements</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl"> public </span>
+</div>
+<div>
+<h4 class="font-bold text-content-light dark:text-content-dark">Geography</h4>
+<p class="text-sm text-content-light/80 dark:text-content-dark/80">A vast continent with diverse biomes.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl"> security </span>
+</div>
+<div>
+<h4 class="font-bold text-content-light dark:text-content-dark">Politics</h4>
+<p class="text-sm text-content-light/80 dark:text-content-dark/80">A complex system of kingdoms and alliances.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl"> auto_awesome </span>
+</div>
+<div>
+<h4 class="font-bold text-content-light dark:text-content-dark">Magic System</h4>
+<p class="text-sm text-content-light/80 dark:text-content-dark/80">Magic is woven into the fabric of reality.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full pt-6">
+<button class="w-full rounded-lg bg-primary py-4 font-bold text-white shadow-md transition-transform hover:scale-105">Enter World</button>
+</div>
+</div>
+</main>
+<nav class="flex-shrink-0 border-t border-content-light/20 bg-background-light/80 dark:border-content-dark/20 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex h-20 items-center justify-around px-2 pt-2">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1"> home </span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-content-light dark:text-content-dark" href="#">
+<span class="material-symbols-outlined"> map </span>
+<span class="text-xs font-medium">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-content-light dark:text-content-dark" href="#">
+<span class="material-symbols-outlined"> groups </span>
+<span class="text-xs font-medium">Characters</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-content-light dark:text-content-dark" href="#">
+<span class="material-symbols-outlined"> timeline </span>
+<span class="text-xs font-medium">Timeline</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-content-light dark:text-content-dark" href="#">
+<span class="material-symbols-outlined"> menu_book </span>
+<span class="text-xs font-medium">Lore</span>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

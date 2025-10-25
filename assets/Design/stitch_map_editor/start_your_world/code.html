@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#7005bd",
+              "background-light": "#f7f5f8",
+              "background-dark": "#1b0f23",
+            },
+            fontFamily: {
+              display: ["Space Grotesk"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-stone-900 dark:text-stone-100">
+<div class="relative flex h-screen flex-col justify-between">
+<main class="flex-grow overflow-y-auto">
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="flex min-h-[218px] w-full flex-col justify-end overflow-hidden bg-cover bg-center bg-no-repeat @[480px]:rounded-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqFFGF5E2AU1jLN4LrZvBYj-qn4c4jl6oQgQ7tYJ7v-JUg95fE2rnia5Z2A7OKFLMJtKQUJkSu_0mzZ9cpSRuuXm2st8bonv3BfMSiqJ0VhTkr0V7fpsAuO8q8qWco5pJWsJKiqk2sdxAr1po4VQef3V1D6fR-MnvhjF_UxTyv4euKOZEO8Y0g7ZCtbq8vmO1K9FsdlDrQWvioN4oHwQDLyj-ThbApdvWi-B7eETStNNx5RKJAev757fSviccdLCIXHo9fgzzHqA");'></div>
+</div>
+</div>
+<div class="px-6 py-8 text-center">
+<h1 class="text-3xl font-bold text-stone-900 dark:text-white">Ready to Build Your World?</h1>
+<p class="mt-2 text-stone-600 dark:text-stone-300">
+            Dive into a realm of endless possibilities. Create your first world or explore templates for inspiration.
+          </p>
+</div>
+<div class="flex flex-col gap-4 px-6 pb-6">
+<button class="flex h-12 w-full items-center justify-center rounded-lg bg-primary px-5 text-base font-bold text-white transition-opacity hover:opacity-90">
+<span>Create New World</span>
+</button>
+<button class="flex h-12 w-full items-center justify-center rounded-lg bg-primary/20 px-5 text-base font-bold text-primary transition-opacity hover:bg-primary/30 dark:bg-primary/20 dark:hover:bg-primary/30">
+<span>Explore Templates</span>
+</button>
+</div>
+</main>
+<footer class="border-t border-primary/20 bg-background-light dark:bg-background-dark/80 backdrop-blur-sm">
+<nav class="flex justify-around px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-primary" href="#">
+<span class="material-symbols-outlined h-8 text-2xl" style="font-variation-settings: 'FILL' 1;"> home </span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-stone-500 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined h-8 text-2xl"> search </span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-stone-500 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined h-8 text-2xl"> add_box </span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-stone-500 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined h-8 text-2xl"> bookmark </span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-stone-500 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined h-8 text-2xl"> person </span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LoreWeaver World Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              indigo: {
+                DEFAULT: "#312E81",
+                dark: "#1E1B4B",
+              },
+              gold: {
+                DEFAULT: "#FBBF24",
+                light: "#FEF3C7",
+              },
+              "background-light": "#F8FAFC",
+              "background-dark": "#0F172A",
+            },
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      body {
+        min-height: 100dvh;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-gray-800 dark:text-gray-200">
+<div class="flex flex-col h-screen">
+<main class="flex-1 overflow-y-auto p-6 bg-indigo-dark">
+<div class="text-center pt-8 pb-6">
+<div class="inline-block p-4 bg-gold-light/20 rounded-full mb-4">
+<svg class="w-12 h-12 text-gold" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-3xl font-bold text-white mb-2">World Generated!</h1>
+<p class="text-gold-light/80 max-w-sm mx-auto">Your world, Eldoria, has been successfully created.</p>
+</div>
+<div class="bg-indigo/80 rounded-xl shadow-lg p-6 space-y-6">
+<div>
+<h2 class="text-lg font-semibold text-gold mb-3">World Highlights</h2>
+<p class="text-gray-300 text-sm leading-relaxed">A realm of soaring mountains and mystical forests, where ancient magic slumbers and epic destinies await. The central kingdom of Aeridor faces threats from the shadowed crags of the north.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-indigo-dark/50 rounded-lg p-4">
+<h3 class="font-semibold text-white mb-2">Map Preview</h3>
+<div class="aspect-square bg-cover bg-center rounded" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJW1SLLDlsn2euvmoTNSDn7o-hOWB0iNIFWYAkCimhFD-7bFoOzVKspIR39cE27EQLYID63HCEW7V7mQqbSktYEMA51cPvSTVJyi8vmrjMixn8BvhnPYme0zY5xg2wXFlW9XcxZWkMe1kZFJRcYG18_PH3dNojHL-PDOEtzCmhdYBeihTIzrIxLyBfO0VEp0bJ4cEuioRCObpOF-zD5zGmCndu0z9b8y4mCerqCAhv4wEqgVl0XWWSWbhILv-ZrLiRJcyOvIsohA')"></div>
+</div>
+<div class="space-y-4">
+<div class="bg-indigo-dark/50 rounded-lg p-4 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-gold text-3xl mb-1">groups</span>
+<span class="text-2xl font-bold text-white">12</span>
+<span class="text-xs text-gray-400">Characters</span>
+</div>
+<div class="bg-indigo-dark/50 rounded-lg p-4 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-gold text-3xl mb-1">hourglass_top</span>
+<span class="text-2xl font-bold text-white">5</span>
+<span class="text-xs text-gray-400">Timeline Eras</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col space-y-4">
+<button class="w-full bg-gold hover:bg-gold/90 text-indigo-dark font-bold py-3 px-4 rounded-lg shadow-md transition-transform duration-200 active:scale-95">Explore Your World</button>
+<button class="w-full bg-indigo/50 hover:bg-indigo/70 text-white font-bold py-3 px-4 rounded-lg transition-transform duration-200 active:scale-95">Customize Further</button>
+</div>
+</main>
+<nav class="bg-indigo-dark border-t border-indigo/50">
+<div class="max-w-md mx-auto flex justify-around items-center h-16">
+<a class="flex flex-col items-center justify-center text-gold w-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-gold w-full" href="#">
+<span class="material-symbols-outlined">public</span>
+<span class="text-xs">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-gold w-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs">Characters</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-gold w-full" href="#">
+<span class="material-symbols-outlined">timeline</span>
+<span class="text-xs">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-gold w-full" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-xs">Lore</span>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>
