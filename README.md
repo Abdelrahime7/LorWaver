@@ -2,19 +2,19 @@
 AI-powered mobile app for immersive fantasy world creation. Built with Flutter, designed for storytellers, game masters, and visual creators.
 ## Design Preview
 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-  <img src="assets/Design/stitch_map_editor/onboarding_welcome/screen.png" alt="Welcome" width="250"/>
-  <img src="assets/Design/stitch_map_editor/ai_generated_world_first_look/screen.png" alt="First Look" width="250"/>
-  <img src="assets/Design/stitch_map_editor/ai_world_generation_progress_1/screen.png" alt="Progress 1" width="250"/>
-  <img src="assets/Design/stitch_map_editor/ai_world_generation_progress_2/screen.png" alt="Progress 2" width="250"/>
+  <img src="assets/Design/stitch_map_editor/onboarding_welcome/screen.png" alt="Welcome" width="200"/>
+  <img src="assets/Design/stitch_map_editor/ai_generated_world_first_look/screen.png" alt="First Look" width="200"/>
+  <img src="assets/Design/stitch_map_editor/ai_world_generation_progress_1/screen.png" alt="Progress 1" width="200"/>
+  <img src="assets/Design/stitch_map_editor/ai_world_generation_progress_2/screen.png" alt="Progress 2" width="200"/>
 </div>
 
 <br/>
 
 <!-- Second row: 3 images -->
 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-  <img src="assets/Design/stitch_map_editor/explore_world_details/screen.png" alt="Explore Details" width="250"/>
-  <img src="assets/Design/stitch_map_editor/select_user_type/screen.png" alt="Select User" width="250"/>
-  <img src="assets/Design/stitch_map_editor/start_your_world/screen.png" alt="Start World" width="250"/>
+  <img src="assets/Design/stitch_map_editor/explore_world_details/screen.png" alt="Explore Details" width="200"/>
+  <img src="assets/Design/stitch_map_editor/select_user_type/screen.png" alt="Select User" width="200"/>
+  <img src="assets/Design/stitch_map_editor/start_your_world/screen.png" alt="Start World" width="200"/>
 </div>
 
 
