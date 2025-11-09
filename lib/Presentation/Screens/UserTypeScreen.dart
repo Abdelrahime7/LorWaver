@@ -15,40 +15,47 @@ class _UserTtypeState extends State<UserTtype> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 55),
-            Text(
-              "What are you creating ?",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+      body: Padding(
+
+        padding: const EdgeInsets.all(20.0),
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 55),
+              Text(
+                "What are you creating ?",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              'Select your primary role to customize your initial experience.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.grey.shade400
-                    : Colors.grey.shade600,
+              Text(
+                'Select your primary role to customize your initial experience.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.grey.shade400
+                      : Colors.grey.shade600,
+                ),
               ),
-            ),
-
-            // Gamers
-            buildRoleContainer(context, 'Gamers'),
-
-            // Writer
-            buildRoleContainer(context, 'Writer'),
-
-            // Movies creators
-            buildRoleContainer(context, 'Movies creators'),
-
-            // Animies Makers
-            buildRoleContainer(context, 'Animies Makers'),
-          ],
+        
+              // Gamers
+              buildRoleContainer(context, 'Gamers'),
+        
+              // Writer
+              buildRoleContainer(context, 'Writer'),
+        
+              // Movies creators
+              buildRoleContainer(context, 'Movies creators'),
+        
+              // Animies Makers
+              buildRoleContainer(context, 'Animies Makers'),
+              
+          
+            
+            ],
+          ),
         ),
       ),
     );
