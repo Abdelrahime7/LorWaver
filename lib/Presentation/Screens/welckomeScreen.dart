@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lorewaver/Presentation/Screens/UserTypeScreen.dart'; // adjust path as needed
 
- 
+
 
 class Welckomescreen extends StatelessWidget
  {
@@ -119,7 +120,13 @@ const Welckomescreen({super.key});
     )
     
     ),
-    onPressed: ()=>(),
+    onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => UserTtype()),
+    );
+  },
+
      child: Text.rich(
       TextSpan(
        text: ' Begin Your Journey ',
