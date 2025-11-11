@@ -1,5 +1,7 @@
  
 import 'package:flutter/material.dart';
+import 'package:lorewaver/Presentation/Screens/ReadyToBuildScreen.dart';
+
 
 class UserTtype extends StatefulWidget {
   const UserTtype({super.key});
@@ -81,7 +83,7 @@ Widget build(BuildContext context) {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const UserTtype()),
+                      MaterialPageRoute(builder: (context) =>  ReadytoBuild()),
                     );
                   },
                   child: Text(
