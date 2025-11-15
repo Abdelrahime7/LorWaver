@@ -25,4 +25,7 @@ flutter:
 
   assets:
     - assets/icons/lorewaver.svg 
+    - assets/icons/CraftingIcon.svg 
+
+
     - assets/design/

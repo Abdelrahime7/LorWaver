@@ -1,7 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:lorewaver/Presentation/Screens/CraftingWorldScreen.dart';
+
 
  class ReadytoBuild extends StatelessWidget 
 {
@@ -94,7 +95,10 @@ class _MainContent extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed:()=>{Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  CraftingWorld()),
+                    )},
                   child: const Text("Create New World"),
                 ),
                 const SizedBox(height: 12),
@@ -107,7 +111,10 @@ class _MainContent extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  CraftingWorld()),
+                    );},
                   child: const Text("Explore Templates"),
                 ),
               ],
