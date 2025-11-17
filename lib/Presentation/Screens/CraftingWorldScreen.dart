@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lorewaver/Presentation/Screens/WorldGeneratedScreen.dart';
+
+
 
 
 
@@ -10,14 +13,34 @@ class CraftingWorld extends StatelessWidget
 Widget build(BuildContext context)
 {
 return Scaffold(
+  
+
   backgroundColor: Theme.of(context).brightness == Brightness.dark
       ? const Color(0xFF1B0F23)
       : const Color(0xFFF7F5F8),
   body: Stack(
+    
     children: [
+    
       // Main content
       Column(
+        
         children: [
+          ElevatedButton(
+            onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  WorldOverviewPage()),
+                    );
+                  },
+                  child: Text(
+                    'Next',
+                    style: TextStyle(
+                      fontSize: 15 ,
+                      fontWeight: FontWeight.bold,
+                    ),
+          )
+          ),
           const SizedBox(height: 200),
           Center(
             child: Container(
