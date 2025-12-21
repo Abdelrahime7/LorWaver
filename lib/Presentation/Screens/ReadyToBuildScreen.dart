@@ -123,7 +123,6 @@ class _BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final inactiveColor = isDark ? Colors.grey[400] : Colors.grey[600];
 
     return Container(
       decoration: BoxDecoration(

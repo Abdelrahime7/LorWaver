@@ -1,13 +1,49 @@
+// ignore: file_names
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lorewaver/Presentation/Screens/WorldGeneratedScreen.dart';
 
-
-
-
-
-class CraftingWorld extends StatelessWidget
+class CraftingWorld extends StatefulWidget
 {
+  const CraftingWorld({super.key});
+
+  @override
+  State<CraftingWorld> createState() => _CraftingWorldState();
+}
+
+class _CraftingWorldState extends State<CraftingWorld> {
+  double _progress = 0.0;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    // Simulate crafting progress
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      setState(() {
+        _progress += 0.01;
+        if (_progress >= 1.0) {
+          _progress = 1.0;
+          timer.cancel();
+          Future.delayed(const Duration(milliseconds: 500), () {
+            if (mounted) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => WorldOverviewPage()),
+              );
+            }
+          });
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
 @override
 Widget build(BuildContext context)
@@ -26,21 +62,6 @@ return Scaffold(
       Column(
         
         children: [
-          ElevatedButton(
-            onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  WorldOverviewPage()),
-                    );
-                  },
-                  child: Text(
-                    'Next',
-                    style: TextStyle(
-                      fontSize: 15 ,
-                      fontWeight: FontWeight.bold,
-                    ),
-          )
-          ),
           const SizedBox(height: 200),
           Center(
             child: Container(
@@ -64,6 +85,7 @@ return Scaffold(
               child: Center(
                 child: SvgPicture.asset(
                   'assets/icons/CraftingIcon.svg',
+                  // ignore: deprecated_member_use
                   color: const Color(0xFF7005BD),
                   width: 64,
                   height: 64,
@@ -110,13 +132,14 @@ return Scaffold(
               height: 10,
               decoration: BoxDecoration(
                 color: Theme.of(context).brightness == Brightness.dark
+                    // ignore: deprecated_member_use
                     ? Colors.blue.withOpacity(0.3)
                     : Colors.blue.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: FractionallySizedBox(
                 alignment: Alignment.centerLeft,
-                widthFactor: 0.45,
+                widthFactor: _progress,
                 child: Container(
                   height: 10,
                   decoration: BoxDecoration(
@@ -127,8 +150,10 @@ return Scaffold(
               ),
             ),
             const SizedBox(height: 8),
+
+
             Text(
-              "Overall Progress",
+              "Overall Progress ${(_progress * 100).toInt()}%",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12,
