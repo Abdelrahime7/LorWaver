@@ -1,6 +1,10 @@
  
 import 'package:flutter/material.dart';
+import 'package:lorewaver/Application/logic/WorldPrompt.dart';
 import 'package:lorewaver/Presentation/Screens/ReadyToBuildScreen.dart';
+
+
+
 
 
 
@@ -12,9 +16,8 @@ class UserTtype extends StatefulWidget {
 }
 
 class _UserTtypeState extends State<UserTtype> {
-  String? selectedRole;
+  late String selectedRole ="";
 
-  @override
 @override
 Widget build(BuildContext context) {
   final size = MediaQuery.of(context).size;
@@ -136,10 +139,14 @@ Widget build(BuildContext context) {
         ),
         Radio<String>(
           value: roleLabel,
+          // ignore: deprecated_member_use
           groupValue: selectedRole,
+          // ignore: deprecated_member_use
           onChanged: (value) {
             setState(() {
-              selectedRole = value;
+              selectedRole = value!;
+              WorldPrompt.role = selectedRole;
+
             });
           },
         ),

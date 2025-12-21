@@ -6,7 +6,11 @@ import 'package:lorewaver/Presentation/Screens/CraftingWorldScreen.dart';
 
  class ReadytoBuild extends StatelessWidget 
 {
+  
+  const ReadytoBuild( {super.key});
 
+
+  
 @override
 Widget build(BuildContext context)
 {
@@ -34,21 +38,22 @@ class _MainContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return SingleChildScrollView(
-      child: Column(
+    return Column(
         children: [
           // Background image
-          Container(
-            height: 218,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: NetworkImage(
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBqFFGF5E2AU1jLN4LrZvBYj-qn4c4jl6oQgQ7tYJ7v-JUg95fE2rnia5Z2A7OKFLMJtKQUJkSu_0mzZ9cpSRuuXm2st8bonv3BfMSiqJ0VhTkr0V7fpsAuO8q8qWco5pJWsJKiqk2sdxAr1po4VQef3V1D6fR-MnvhjF_UxTyv4euKOZEO8Y0g7ZCtbq8vmO1K9FsdlDrQWvioN4oHwQDLyj-ThbApdvWi-B7eETStNNx5RKJAev757fSviccdLCIXHo9fgzzHqA",
+          Expanded(
+    
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: NetworkImage(
+                    "https://lh3.googleusercontent.com/aida-public/AB6AXuBqFFGF5E2AU1jLN4LrZvBYj-qn4c4jl6oQgQ7tYJ7v-JUg95fE2rnia5Z2A7OKFLMJtKQUJkSu_0mzZ9cpSRuuXm2st8bonv3BfMSiqJ0VhTkr0V7fpsAuO8q8qWco5pJWsJKiqk2sdxAr1po4VQef3V1D6fR-MnvhjF_UxTyv4euKOZEO8Y0g7ZCtbq8vmO1K9FsdlDrQWvioN4oHwQDLyj-ThbApdvWi-B7eETStNNx5RKJAev757fSviccdLCIXHo9fgzzHqA",
+                  ),
+                  fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
+                borderRadius: BorderRadius.circular(12),
               ),
-              borderRadius: BorderRadius.circular(12),
             ),
           ),
 
@@ -58,6 +63,7 @@ class _MainContent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Ready to Build Your World?",
@@ -67,7 +73,8 @@ class _MainContent extends StatelessWidget {
                         color: isDark ? Colors.white : Colors.black87,
                       ),
                 ),
-                const SizedBox(height: 12),
+
+                const SizedBox(height: 24),
                 Text(
                   "Dive into a realm of endless possibilities. Create your first world or explore templates for inspiration.",
                   textAlign: TextAlign.center,
@@ -75,54 +82,40 @@ class _MainContent extends StatelessWidget {
                         color: isDark ? Colors.grey[300] : Colors.grey[700],
                       ),
                 ),
+                const SizedBox(height: 48),
               ],
             ),
           ),
 
-          const SizedBox(height: 24),
+         
 
           // Buttons
+         
+          
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF7005BD),
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size.fromHeight(48),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  onPressed:()=>{Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  CraftingWorld()),
-                    )},
-                  child: const Text("Create New World"),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF7005BD),
+                foregroundColor: Colors.white,
+                minimumSize: const Size.fromHeight(48),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                const SizedBox(height: 12),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color(0xFF7005BD),
-                    side: const BorderSide(color: Color(0xFF7005BD)),
-                    minimumSize: const Size.fromHeight(48),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  onPressed: () {  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  CraftingWorld()),
-                    );},
-                  child: const Text("Explore Templates"),
-                ),
-              ],
+              ),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CraftingWorld()),
+              ),
+              child: const Text("Create New World"),
             ),
           ),
-        ],
-      ),
+        
+          
+        ]
     );
+      
+    
   }
 }
 
