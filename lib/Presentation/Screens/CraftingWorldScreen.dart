@@ -2,7 +2,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lorewaver/Application/logic/aigeneratWorld.dart';
 import 'package:lorewaver/Presentation/Screens/WorldGeneratedScreen.dart';
+ 
+
+   
 
 class CraftingWorld extends StatefulWidget
 {
@@ -19,24 +23,39 @@ class _CraftingWorldState extends State<CraftingWorld> {
   @override
   void initState() {
     super.initState();
-    // Simulate crafting progress
+    _generateWorld();
+  }
+
+  Future<void> _generateWorld() async {
+    debugPrint("DEBUG: _generateWorld started");
+    // Simulate progress while waiting for the API
     _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
-        _progress += 0.01;
-        if (_progress >= 1.0) {
-          _progress = 1.0;
-          timer.cancel();
-          Future.delayed(const Duration(milliseconds: 500), () {
-            if (mounted) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => WorldOverviewPage()),
-              );
-            }
-          });
+        // Cap progress at 90% until the API returns
+        if (_progress < 0.9) {
+          _progress += 0.01;
         }
       });
     });
+
+    // Perform the actual generation
+    final WorldData defaultWorldData = await AiGenerateWorld.generate();
+
+    _timer?.cancel();
+    if (mounted) {
+      setState(() {
+        _progress = 1.0;
+      });
+      Future.delayed(const Duration(milliseconds: 500), () {
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => WorldOverviewPage(data: defaultWorldData)),
+          );
+        }
+      });
+    }
   }
 
   @override
@@ -44,6 +63,7 @@ class _CraftingWorldState extends State<CraftingWorld> {
     _timer?.cancel();
     super.dispose();
   }
+ 
 
 @override
 Widget build(BuildContext context)
@@ -85,8 +105,10 @@ return Scaffold(
               child: Center(
                 child: SvgPicture.asset(
                   'assets/icons/CraftingIcon.svg',
-                  // ignore: deprecated_member_use
-                  color: const Color(0xFF7005BD),
+                  colorFilter: const ColorFilter.mode(
+                    Color(0xFF7005BD),
+                    BlendMode.srcIn,
+                  ),
                   width: 64,
                   height: 64,
                 ),

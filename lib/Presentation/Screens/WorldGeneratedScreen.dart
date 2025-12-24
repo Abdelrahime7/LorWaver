@@ -1,10 +1,22 @@
 
 
+
 import 'package:flutter/material.dart';
 import 'package:lorewaver/Presentation/Screens/CraftingWorldScreen.dart';
 
+typedef WorldData = ({
+  String? name,
+  String? description,
+  String? highlights,
+  String? characters,
+  String? eras,
+});
+
 
 class WorldOverviewPage extends StatelessWidget {
+  const WorldOverviewPage({super.key, required this.data});
+  final WorldData data;
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +56,10 @@ class WorldOverviewPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
-                "Your world, Eldoria, has been successfully created.",
+              Text(
+                "Your world,${data.name}, has been successfully created.",
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xFFFEF3C7), // gold-light/80
                   fontSize: 14,
                 ),
@@ -81,9 +93,9 @@ class WorldOverviewPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    const Text(
-                      "A realm of soaring mountains and mystical forests, where ancient magic slumbers and epic destinies await. The central kingdom of Aeridor faces threats from the shadowed crags of the north.",
-                      style: TextStyle(
+                    Text(
+                    "${data.description}",
+                      style: const TextStyle(
                         color: Color(0xFFD1D5DB), // gray-300
                         fontSize: 14,
                         height: 1.6,
@@ -141,16 +153,16 @@ class WorldOverviewPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Column(
-                                  children: const [
-                                    Icon(Icons.groups,
+                                  children: [
+                                    const Icon(Icons.groups,
                                         color: Color(0xFFFBBF24), size: 32),
-                                    SizedBox(height: 4),
-                                    Text("12",
-                                        style: TextStyle(
+                                    const SizedBox(height: 4),
+                                    Text("${data.characters}",
+                                        style: const TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white)),
-                                    Text("Characters",
+                                    const Text("Characters",
                                         style: TextStyle(
                                             fontSize: 12,
                                             color: Colors.grey)),
@@ -165,16 +177,16 @@ class WorldOverviewPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Column(
-                                  children: const [
-                                    Icon(Icons.hourglass_top,
+                                  children: [
+                                    const Icon(Icons.hourglass_top,
                                         color: Color(0xFFFBBF24), size: 32),
-                                    SizedBox(height: 4),
-                                    Text("5",
-                                        style: TextStyle(
+                                    const SizedBox(height: 4),
+                                    Text("${data.eras}",
+                                        style: const TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white)),
-                                    Text("Timeline Eras",
+                                    const Text("Timeline Eras",
                                         style: TextStyle(
                                             fontSize: 12,
                                             color: Colors.grey)),
