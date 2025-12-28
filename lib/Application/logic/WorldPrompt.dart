@@ -16,7 +16,7 @@ Return ONLY a valid JSON object with the following structure:
   "description": "A short one-sentence tagline",
   "highlights": "A detailed paragraph describing the geography, magic/technology, and central conflict",
   "stats": { "characters": 10, "eras": 5 },
-  "map_description": "A visual description of the map"
+  "map_description": "A detailed visual prompt for an AI image generator to create a map of this world. Describe the terrain, style (e.g. parchment, fantasy map), and key landmarks."
 }''';
   }
 

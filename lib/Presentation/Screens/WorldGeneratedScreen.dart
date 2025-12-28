@@ -1,6 +1,7 @@
 
 
 
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:lorewaver/Presentation/Screens/CraftingWorldScreen.dart';
 
@@ -10,20 +11,65 @@ typedef WorldData = ({
   String? highlights,
   String? characters,
   String? eras,
+  String? mapImageUrl,
+  Uint8List? mapImageBytes,
 });
 
 
-class WorldOverviewPage extends StatelessWidget {
+class WorldOverviewPage extends StatefulWidget {
   const WorldOverviewPage({super.key, required this.data});
   final WorldData data;
 
+  @override
+  State<WorldOverviewPage> createState() => _WorldOverviewPageState();
+}
+
+class _WorldOverviewPageState extends State<WorldOverviewPage> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final screens = [
+      _HomeTab(data: widget.data),
+      _MapTab(data: widget.data),
+      _CharactersTab(data: widget.data),
+      _TimelineTab(data: widget.data),
+      _LoreTab(data: widget.data),
+    ];
+
     return Scaffold(
       backgroundColor: const Color(0xFF1E1B4B), // indigo-dark
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: screens[_selectedIndex],
+      ),
+
+      // === Bottom Navigation ===
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) => setState(() => _selectedIndex = index),
+        backgroundColor: const Color(0xFF1E1B4B),
+        selectedItemColor: const Color(0xFFFBBF24),
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.public), label: "Map"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Characters"),
+          BottomNavigationBarItem(icon: Icon(Icons.timeline), label: "Timeline"),
+          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: "Lore"),
+        ],
+      ),
+    );
+  }
+}
+
+class _HomeTab extends StatelessWidget {
+  const _HomeTab({required this.data});
+  final WorldData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
@@ -130,10 +176,12 @@ class WorldOverviewPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   child: AspectRatio(
                                     aspectRatio: 1,
-                                    child: Image.network(
-                                      "https://lh3.googleusercontent.com/aida-public/AB6AXuDJW1SLLDlsn2euvmoTNSDn7o-hOWB0iNIFWYAkCimhFD-7bFoOzVKspIR39cE27EQLYID63HCEW7V7mQqbSktYEMA51cPvSTVJyi8vmrjMixn8BvhnPYme0zY5xg2wXFlW9XcxZWkMe1kZFJRcYG18_PH3dNojHL-PDOEtzCmhdYBeihTIzrIxLyBfO0VEp0bJ4cEuioRCObpOF-zD5zGmCndu0z9b8y4mCerqCAhv4wEqgVl0XWWSWbhILv-ZrLiRJcyOvIsohA",
-                                      fit: BoxFit.cover,
-                                    ),
+                                    child: data.mapImageBytes != null
+                                        ? Image.memory(data.mapImageBytes!, fit: BoxFit.cover)
+                                        : Image.network(
+                                            data.mapImageUrl ?? "https://lh3.googleusercontent.com/aida-public/AB6AXuDJW1SLLDlsn2euvmoTNSDn7o-hOWB0iNIFWYAkCimhFD-7bFoOzVKspIR39cE27EQLYID63HCEW7V7mQqbSktYEMA51cPvSTVJyi8vmrjMixn8BvhnPYme0zY5xg2wXFlW9XcxZWkMe1kZFJRcYG18_PH3dNojHL-PDOEtzCmhdYBeihTIzrIxLyBfO0VEp0bJ4cEuioRCObpOF-zD5zGmCndu0z9b8y4mCerqCAhv4wEqgVl0XWWSWbhILv-ZrLiRJcyOvIsohA",
+                                            fit: BoxFit.cover,
+                                          ),
                                   ),
                                 ),
                               ],
@@ -242,21 +290,141 @@ class WorldOverviewPage extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
+        );
+  }
+}
 
-      // === Bottom Navigation ===
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFF1E1B4B),
-        selectedItemColor: const Color(0xFFFBBF24),
-        unselectedItemColor: Colors.grey,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.public), label: "Map"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Characters"),
-          BottomNavigationBarItem(icon: Icon(Icons.timeline), label: "Timeline"),
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: "Lore"),
+class _MapTab extends StatelessWidget {
+  const _MapTab({required this.data});
+  final WorldData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.public, size: 64, color: Color(0xFFFBBF24)),
+          const SizedBox(height: 16),
+          Text("Map of ${data.name}",
+              style: const TextStyle(color: Colors.white, fontSize: 24)),
+          const SizedBox(height: 16),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.all(16),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.black26,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: data.mapImageBytes != null
+                    ? Image.memory(data.mapImageBytes!, fit: BoxFit.contain)
+                    : Image.network(
+                        data.mapImageUrl ?? "https://lh3.googleusercontent.com/aida-public/AB6AXuDJW1SLLDlsn2euvmoTNSDn7o-hOWB0iNIFWYAkCimhFD-7bFoOzVKspIR39cE27EQLYID63HCEW7V7mQqbSktYEMA51cPvSTVJyi8vmrjMixn8BvhnPYme0zY5xg2wXFlW9XcxZWkMe1kZFJRcYG18_PH3dNojHL-PDOEtzCmhdYBeihTIzrIxLyBfO0VEp0bJ4cEuioRCObpOF-zD5zGmCndu0z9b8y4mCerqCAhv4wEqgVl0XWWSWbhILv-ZrLiRJcyOvIsohA",
+                        fit: BoxFit.contain,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return const Center(child: CircularProgressIndicator(color: Color(0xFFFBBF24)));
+                        },
+                      ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _CharactersTab extends StatelessWidget {
+  const _CharactersTab({required this.data});
+  final WorldData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.person, size: 64, color: Color(0xFFFBBF24)),
+          const SizedBox(height: 16),
+          Text("Characters in ${data.name}",
+              style: const TextStyle(color: Colors.white, fontSize: 24)),
+          const SizedBox(height: 8),
+          Text("Population: ${data.characters}",
+              style: const TextStyle(color: Colors.grey)),
+          const SizedBox(height: 32),
+          const Text("Character list coming soon...",
+              style: TextStyle(color: Colors.white54)),
+        ],
+      ),
+    );
+  }
+}
+
+class _TimelineTab extends StatelessWidget {
+  const _TimelineTab({required this.data});
+  final WorldData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.timeline, size: 64, color: Color(0xFFFBBF24)),
+          const SizedBox(height: 16),
+          Text("Timeline of ${data.name}",
+              style: const TextStyle(color: Colors.white, fontSize: 24)),
+          const SizedBox(height: 8),
+          Text("Eras: ${data.eras}",
+              style: const TextStyle(color: Colors.grey)),
+          const SizedBox(height: 32),
+          const Text("Timeline events coming soon...",
+              style: TextStyle(color: Colors.white54)),
+        ],
+      ),
+    );
+  }
+}
+
+class _LoreTab extends StatelessWidget {
+  const _LoreTab({required this.data});
+  final WorldData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Center(
+              child: Icon(Icons.menu_book, size: 64, color: Color(0xFFFBBF24))),
+          const SizedBox(height: 16),
+          Center(
+              child: Text("Lore of ${data.name}",
+                  style: const TextStyle(color: Colors.white, fontSize: 24))),
+          const SizedBox(height: 32),
+          const Text("Description",
+              style: TextStyle(
+                  color: Color(0xFFFBBF24),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          Text("${data.description}",
+              style: const TextStyle(color: Colors.white70, height: 1.5)),
+          const SizedBox(height: 24),
+          const Text("Highlights",
+              style: TextStyle(
+                  color: Color(0xFFFBBF24),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          Text("${data.highlights}",
+              style: const TextStyle(color: Colors.white70, height: 1.5)),
         ],
       ),
     );

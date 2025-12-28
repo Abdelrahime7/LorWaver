@@ -19,50 +19,43 @@ class CraftingWorld extends StatefulWidget
 class _CraftingWorldState extends State<CraftingWorld> {
   double _progress = 0.0;
   Timer? _timer;
+  late var future ;
 
   @override
   void initState() {
     super.initState();
     _generateWorld();
   }
+  Future<void> _generateWorld() async { // Start generation once 
+  future = AiGenerateWorld.generate(); // Progress simulation: tick every 200ms until 90% 
+  _timer = Timer.periodic(const Duration(milliseconds: 350),
+   (timer) { setState(() { if (_progress < 0.9) { _progress += 0.01; } }); }); 
+   // Wait for generation to finish (~20s)
+    var result = await future; // Stop timer and animate to 100%  
+    _timer?.cancel(); if (mounted) { 
+      // Smooth animation instead of instant jump 
+      _animateToCompletion(result); 
+      }
+       }
+       void _animateToCompletion(dynamic result) {
+         // Animate progress to 100% over 500ms
+        const duration = Duration(milliseconds: 500);
+         final target = 1.0; final step = (target - _progress) / (duration.inMilliseconds / 50);
+          Timer.periodic(const Duration(milliseconds: 50),
+           (timer) { setState(() { _progress += step; if (_progress >= target)
+            { _progress = target; timer.cancel(); // Navigate once animation finishes
 
-  Future<void> _generateWorld() async {
-    debugPrint("DEBUG: _generateWorld started");
-    // Simulate progress while waiting for the API
-    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
-      setState(() {
-        // Cap progress at 90% until the API returns
-        if (_progress < 0.9) {
-          _progress += 0.01;
-        }
-      });
-    });
+        Navigator.pushReplacement( context, MaterialPageRoute( builder: (context) => WorldOverviewPage(data: result), ), ); } }); }); }
 
-    // Perform the actual generation
-    final WorldData defaultWorldData = await AiGenerateWorld.generate();
-
-    _timer?.cancel();
-    if (mounted) {
-      setState(() {
-        _progress = 1.0;
-      });
-      Future.delayed(const Duration(milliseconds: 500), () {
-        if (mounted) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => WorldOverviewPage(data: defaultWorldData)),
-          );
-        }
-      });
-    }
-  }
 
   @override
   void dispose() {
     _timer?.cancel();
     super.dispose();
   }
+ 
+
+
  
 
 @override
